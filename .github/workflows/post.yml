@@ -2,8 +2,8 @@ name: ヒトコトBOT 毎日投稿
 
 on:
   schedule:
-    - cron: '0 6 * * *'     # 日本時間 15:00 に投稿
-  workflow_dispatch:        # 手動テスト用
+    - cron: '15 6 * * *'     # 日本時間 15:15 に投稿（UTC 6:15）
+  workflow_dispatch:        # 手動で今すぐテストできるボタン
 
 jobs:
   post:
