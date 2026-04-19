@@ -24,7 +24,7 @@ hitokoto = random.choice(hitokoto_list)
 # Karotterに投稿
 url = "https://karotter.com/api/developer/posts"  # 投稿エンドポイント（公式ドキュメントで確認してね）
 headers = {
-    "x-api-key": os.getenv("KAROTTER_API_KEY"),   # または "Authorization": f"Bearer {os.getenv('KAROTTER_API_KEY')}"
+    "Authorization": f"Bearer {os.getenv('KAROTTER_API_KEY')}",
     "Content-Type": "application/json"
 }
 data = {
