@@ -1,0 +1,25 @@
+name: ヒトコトBOT 毎日投稿
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 日本時間でだいたい21時頃（UTC 12時）。自分の好きな時間に変えていいよ
+  workflow_dispatch:       # 「今すぐ実行」ボタンで手動テストできる
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Pythonを準備
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: 必要なツールを入れる
+        run: pip install requests
+      
+      - name: 変な一言を投稿する
+        env:
+          KAROTTER_API_KEY: ${{ secrets.kar_live_8zwdVzbX-q7d_2oG4SOPdX0h__BPKMJYwRRHBrLlxzc }}
+        run: python bot.py
