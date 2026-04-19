@@ -2,8 +2,8 @@ name: ヒトコトBOT 毎日投稿
 
 on:
   schedule:
-    - cron: '0 6 * * *'     # 日本時間 15:00 に投稿（UTC 6:00）
-  workflow_dispatch:        # 手動で今すぐテストできるボタン
+    - cron: '0 6 * * *'     # 日本時間 15:00 に投稿
+  workflow_dispatch:        # 手動テスト用
 
 jobs:
   post:
@@ -19,7 +19,7 @@ jobs:
       - name: 必要なツールを入れる
         run: pip install requests
       
-      - name: 変な一言を投稿する
+      - name: 日常の一言を投稿する
         env:
           KAROTTER_API_KEY: ${{ secrets.KAROTTER_API_KEY }}
         run: python bot.py
